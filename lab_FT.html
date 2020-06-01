@@ -12,55 +12,58 @@
 	<button id="b3" onclick="addRow()">Add Row</button>
 		
 	<script language="javascript">
-		
-		var rn,cn;
-
-function createTable() {
-var tab = document.createElement("table");
-document.body.appendChild(tab);
-tab.setAttribute("id", "myTable");
-tab.setAttribute("border", "1");
-}
-function generateTable()
-{
-   var p = document.getElementById("t1");
-   var q = document.getElementById("t2");
-   rn = p.value;
-   cn = q.value;
-
-for(var r=0;r<parseInt(rn,10);r++)
-{
-var x=document.getElementById('myTable').insertRow(r);
-for(var c=0;c<parseInt(cn,10);c++)
-{
-var y= x.insertCell(c);
-y.innerHTML="R"+r+" C"+c;
-}
-    }
-
-    document.getElementById('tag').remove();
-	document.getElementById('b1').remove();
-}
-function addRow() {
-var x = document.getElementById('myTable').insertRow(rn);
-for(var c=0;c<parseInt(cn,10);c++)
-{
-var y = x.insertCell(c);
-y.innerHTML="R"+rn+" C"+c;
-}
-
-rn++;
-}
-
-function addColumn() {
-var x = document.getElementById('myTable');
-for(var r=0;r<parseInt(rn,10);r++) {
-x.rows[r].insertCell().innerHTML = "R"+r+" C"+cn;
-}
-cn++;
-}
-createTable();
 	
+
+		function createTable() {
+		var table = document.createElement("table");
+		document.body.appendChild(table);
+		table.setAttribute("id", "myTable");
+		table.setAttribute("border", "1");
+		}
+
+		function generateTable()
+		{
+   			var p = document.getElementById("t1");
+   			var q = document.getElementById("t2");
+   			rw = p.value;
+   			cn = q.value;
+
+			for(var row=0;row<parseInt(rw,10);row++)
+			{
+			var x=document.getElementById('myTable').insertRow(row);
+			for(var column=0;column<parseInt(cn,10);column++)
+			{
+			var y= x.insertCell(column);
+			y.innerHTML=row+" , "+column;
+				}
+   	 }
+		
+    	document.getElementById('tag').remove();
+		document.getElementById('b1').remove();
+	}
+
+	function addRow() {
+	var x = document.getElementById('myTable').insertRow(rw);
+	for(var column=0;column<parseInt(cn,10);column++)
+	{
+		var y = x.insertCell(column);
+		y.innerHTML=rw+" , "+column;
+		}
+
+		rw++;
+		}
+
+		function addColumn() {
+		var x = document.getElementById('myTable');
+		for(var row=0;row<parseInt(rw,10);row++) {
+		x.rows[row].insertCell().innerHTML = row+" , "+cn;
+		}
+		cn++;
+		}
+
+		createTable();
+	
+
 	</script>
 	
 </html>
